@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-image: url('https://example.com/your-background-image.jpg'); /* Cambia esta URL por la imagen de fondo que desees */
+  background-size: cover;
+  color: white;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.navbar-nav .nav-link {
+  transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #3b5672; /* Color al pasar el mouse */
+}

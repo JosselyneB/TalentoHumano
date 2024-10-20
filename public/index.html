@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Gestión de Talento Humano</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <header class="bg-dark text-white text-center py-5">
+    <h1>Sistema de Gestión de Talento Humano</h1>
+    <p>Tu solución para la gestión eficiente de recursos humanos</p>
+  </header>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Inicio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#empleados">Empleados</a></li>
+        <li class="nav-item"><a class="nav-link" href="#licencias">Licencias</a></li>
+        <li class="nav-item"><a class="nav-link" href="#reclutamiento">Reclutamiento</a></li>
+        <li class="nav-item"><a class="nav-link" href="#evaluacion">Evaluación Desempeño</a></li>
+        <li class="nav-item"><a class="nav-link" href="#curriculum">Currículum</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sanciones">Sanciones</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contrato">Contratos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#jornada">Jornada Laboral</a></li>
+        <li class="nav-item"><a class="nav-link" href="#rol-pago">Rol de Pago</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container my-5">
+    <h2 class="text-center">Panel de Control</h2>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card text-white bg-primary">
+          <div class="card-body">
+            <h5 class="card-title">Número de Empleados</h5>
+            <p class="card-text" id="empleadosCount">100</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-white bg-warning">
+          <div class="card-body">
+            <h5 class="card-title">Evaluaciones Pendientes</h5>
+            <p class="card-text" id="evaluacionesPendientes">5</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-white bg-success">
+          <div class="card-body">
+            <h5 class="card-title">Formaciones Completadas</h5>
+            <p class="card-text" id="formacionesCompletadas">20</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-white bg-danger">
+          <div class="card-body">
+            <h5 class="card-title">Sanciones Registradas</h5>
+            <p class="card-text" id="sancionesRegistradas">2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mt-4 text-center">Gráficos Interactivos</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Rendimiento de Empleados</h5>
+            <canvas id="rendimientoChart"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Métricas de la Empresa</h5>
+            <canvas id="metricasChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container my-5">
+    <h2 class="text-center">Secciones</h2>
+    <ul class="list-unstyled">
+      <li><strong>Empleados:</strong> Listado de empleados, creación de nuevos empleados.</li>
+      <li><strong>Licencias:</strong> Gestión de permisos/licencias.</li>
+      <li><strong>Reclutamiento:</strong> Vacantes y candidatos.</li>
+      <li><strong>Evaluación de desempeño:</strong> Evaluación de empleados.</li>
+      <li><strong>Currículum:</strong> Información detallada de la experiencia laboral y formación académica de los empleados.</li>
+      <li><strong>Sanciones:</strong> Registro de sanciones.</li>
+      <li><strong>Contrato:</strong> Gestión de contratos de los empleados.</li>
+      <li><strong>Jornada laboral:</strong> Configuración de los horarios de trabajo.</li>
+      <li><strong>Rol de pagos:</strong> Historial de pagos de los empleados.</li>
+      <li><strong>Ubicación, Área, Cargo y Departamento:</strong> Organización interna, roles y áreas de trabajo.</li>
+    </ul>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-4">
+    <p>© 2024 Sistema de Gestión de Talento Humano - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          // Datos para manejar en el futuro
+        }
+      },
+      methods: {
+        // Métodos para manejar las acciones
+      }
+    }).mount('#app');
+
+    // Inicializar gráficos
+    const ctxRendimiento = document.getElementById('rendimientoChart').getContext('2d');
+    const rendimientoChart = new Chart(ctxRendimiento, {
+      type: 'bar',
+      data: {
+        labels: ['Empleado 1', 'Empleado 2', 'Empleado 3', 'Empleado 4'],
+        datasets: [{
+          label: 'Rendimiento',
+          data: [12, 19, 3, 5],
+          backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const ctxMetricas = document.getElementById('metricasChart').getContext('2d');
+    const metricasChart = new Chart(ctxMetricas, {
+      type: 'pie',
+      data: {
+        labels: ['Cumplimiento', 'No Cumplimiento'],
+        datasets: [{
+          label: 'Métricas',
+          data: [75, 25],
+          backgroundColor: ['rgba(75, 192, 192, 0.6)', 'rgba(255, 99, 132, 0.6)'],
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
